@@ -43,7 +43,7 @@ namespace ProjetoConsultaN2.Services
             return consultas;
         }
 
-        public async Task<GetConsultaDTO> AgendarConsultaAsync(MarcarConsultaDTO consulta)
+        public async Task<string> AgendarConsultaAsync(MarcarConsultaDTO consulta)
         {
             var consultaModel = new Consulta() {
                 DataConsulta = consulta.DataConsulta,
@@ -56,31 +56,7 @@ namespace ProjetoConsultaN2.Services
             _context.Consultas.Add(consultaModel);
             await _context.SaveChangesAsync();
 
-            var response = new GetConsultaDTO
-            {
-                Id = consultaModel.Id,
-                DataConsulta = consultaModel.DataConsulta,
-                Descricao = consultaModel.Descricao,
-                Prescricao = consultaModel.Prescricao,
-                TipoConsulta = consultaModel.TipoConsulta,
-                Medico = new GetMedicoDTO
-                {
-                    Nome = consultaModel.Medico.Nome,
-                    CRM = consultaModel.Medico.CRM,
-                    Especialidade = consultaModel.Medico.Especialidade
-                },
-                Paciente = new CreatePacienteDTO
-                {
-                    Nome = consultaModel.Paciente.Nome,
-                    DataDeNascimento = consultaModel.Paciente.DataDeNascimento,
-                    CPF = consultaModel.Paciente.CPF,
-                    Telefone = consultaModel.Paciente.Telefone,
-                    Endereco = consultaModel.Paciente.Endereco,
-                    Sexo = consultaModel.Paciente.Sexo,
-                    TipoSanguineo = consultaModel.Paciente.TipoSanguineo
-                }
-            };
-            return response;
+            return "Consulta agendada com sucesso";
         }
 
         public async Task<string?> DeleteConsultaAsync(int id)
