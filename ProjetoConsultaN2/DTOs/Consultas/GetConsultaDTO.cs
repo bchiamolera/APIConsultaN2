@@ -8,7 +8,7 @@
         public string Prescricao { get; set; } = string.Empty;
         public string TipoConsulta { get; set; } = string.Empty;
 
-        public GetMedicoDTO Medico { get; set; }
+        public MedicoInfoDTO Medico { get; set; }
         public CreatePacienteDTO Paciente { get; set; }
     }
 }

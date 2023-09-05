@@ -1,6 +1,6 @@
 ﻿namespace ProjetoConsultaN2.DTOs.Medicos
 {
-    public class GetMedicoDTO
+    public class MedicoInfoDTO
     {
         public string Nome { get; set; } = string.Empty;
         public int CRM { get; set; } = 0;

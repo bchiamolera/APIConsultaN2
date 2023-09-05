@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTOs\Medicos\ShowMedicoDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="DTOs\Consultas\NewFile.txt" />
     <None Remove="DTOs\Pacientes\NewFile.txt" />
   </ItemGroup>

@@ -20,7 +20,7 @@ namespace ProjetoConsultaN2.Services
                     Descricao = c.Descricao,
                     Prescricao = c.Prescricao,
                     TipoConsulta = c.TipoConsulta,
-                    Medico = new GetMedicoDTO
+                    Medico = new MedicoInfoDTO
                     {
                         Nome = c.Medico.Nome,
                         CRM = c.Medico.CRM,
@@ -63,7 +63,7 @@ namespace ProjetoConsultaN2.Services
                 Descricao = consultaModel.Descricao,
                 Prescricao = consultaModel.Prescricao,
                 TipoConsulta = consultaModel.TipoConsulta,
-                Medico = new GetMedicoDTO
+                Medico = new MedicoInfoDTO
                 {
                     Nome = consultaModel.Medico.Nome,
                     CRM = consultaModel.Medico.CRM,
@@ -104,7 +104,7 @@ namespace ProjetoConsultaN2.Services
                     Descricao = c.Descricao,
                     Prescricao = c.Prescricao,
                     TipoConsulta = c.TipoConsulta,
-                    Medico = new GetMedicoDTO
+                    Medico = new MedicoInfoDTO
                     {
                         Nome = c.Medico.Nome,
                         CRM = c.Medico.CRM,
