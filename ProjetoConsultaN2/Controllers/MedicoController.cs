@@ -42,7 +42,7 @@ namespace ProjetoConsultaN2.Controllers
             return Ok(medico);
         }
 
-        [HttpGet("{especialidade}")]
+        [HttpGet("especialidade")]
         public async Task<IActionResult> GetMedicosByEspecialidade([FromQuery] string especialidade)
         {
             var medicos = await _medicoService.GetMedicoEspecialidadeAsync(especialidade);
@@ -68,7 +68,7 @@ namespace ProjetoConsultaN2.Controllers
         }
 
         [HttpGet("disponiveis")]
-        public async Task<IActionResult> GetMedicosDisponiveis([FromQuery] DateOnly data, [FromQuery] string especialidade)
+        public async Task<IActionResult> GetMedicosDisponiveis([FromQuery] DateTime data, [FromQuery] string especialidade)
         {
             var medicos = await _medicoService.GetMedicosDisponiveisAsync(data, especialidade);
             if (medicos == null)

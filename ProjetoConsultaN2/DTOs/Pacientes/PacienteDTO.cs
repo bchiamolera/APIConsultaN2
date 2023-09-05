@@ -11,6 +11,6 @@
 		public string Sexo { get; set; } = string.Empty;
 		public string TipoSanguineo { get; set; } = string.Empty;
 
-		public MedicoDTO Medico { get; set; }
+		public GetMedicoDTO Medico { get; set; }
 	}
 }

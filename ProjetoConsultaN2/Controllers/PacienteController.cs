@@ -37,9 +37,9 @@ namespace ProjetoConsultaN2.Controllers
 		}
 
 		[HttpGet("{id}/consultas")]
-		public async Task<ActionResult<List<ConsultaPorPacienteDTO>>> GetConsultasPorPaciente(int pacienteId)
+		public async Task<ActionResult<List<ConsultaPorPacienteDTO>>> GetConsultasPorPaciente(int id)
         {
-			var consultas = await _pacienteService.GetConsultasPorPacienteAsync(pacienteId);
+			var consultas = await _pacienteService.GetConsultasPorPacienteAsync(id);
 			if (consultas == null)
 			{
 				return NotFound("Nenhuma consulta foi encontrada");
@@ -48,9 +48,9 @@ namespace ProjetoConsultaN2.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public async Task<ActionResult<PacienteDTO>> UpdatePaciente(int pacienteId, PacienteDTO request)
+		public async Task<ActionResult<PacienteDTO>> UpdatePaciente(int id, PacienteDTO request)
         {
-			var pacientes = await _pacienteService.UpdatePacienteAsync(pacienteId, request);
+			var pacientes = await _pacienteService.UpdatePacienteAsync(id, request);
 			if (pacientes == null)
 			{
 				return NotFound("Nenhum paciente foi encontrado");
@@ -59,9 +59,9 @@ namespace ProjetoConsultaN2.Controllers
 		}
 
 		[HttpPatch("{id}")]
-		public async Task<ActionResult<PacienteDTO>> UpdatePacienteAddress(int pacienteId, string request)
+		public async Task<ActionResult<PacienteDTO>> UpdatePacienteAddress(int id, string request)
         {
-			var pacientes = await _pacienteService.UpdatePacienteAddressAsync(pacienteId, request);
+			var pacientes = await _pacienteService.UpdatePacienteAddressAsync(id, request);
 			if (pacientes == null)
 			{
 				return NotFound("Nenhum paciente foi encontrado");

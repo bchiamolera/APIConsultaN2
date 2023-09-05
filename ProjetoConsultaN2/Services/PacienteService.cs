@@ -41,16 +41,11 @@ namespace ProjetoConsultaN2.Services
                     Endereco = p.Endereco,
                     Sexo = p.Sexo,
                     TipoSanguineo = p.TipoSanguineo,
-                    Medico = new MedicoDTO
+                    Medico = new GetMedicoDTO
                     {
                         Nome = p.Medico.Nome,
                         CRM = p.Medico.CRM,
                         Especialidade = p.Medico.Especialidade,
-                        Telefone = p.Medico.Telefone,
-                        Endereco = p.Medico.Endereco,
-                        DataDeNascimento = p.Medico.DataDeNascimento,
-                        Sexo = p.Medico.Sexo,
-                        Idade = p.Medico.Idade
                     }
                 }).ToListAsync();
             if (pacientes == null) return null;
@@ -87,16 +82,11 @@ namespace ProjetoConsultaN2.Services
 					Endereco = p.Endereco,
 					Sexo = p.Sexo,
 					TipoSanguineo = p.TipoSanguineo,
-					Medico = new MedicoDTO
+					Medico = new GetMedicoDTO
 					{
 						Nome = p.Medico.Nome,
 						CRM = p.Medico.CRM,
 						Especialidade = p.Medico.Especialidade,
-						Telefone = p.Medico.Telefone,
-						Endereco = p.Medico.Endereco,
-						DataDeNascimento = p.Medico.DataDeNascimento,
-						Sexo = p.Medico.Sexo,
-						Idade = p.Medico.Idade
 					}
 				}).Where(p => (DateTime.Now.Year - p.DataDeNascimento.Year) > idade).ToListAsync();
 			if (pacientes == null) return null;
@@ -117,16 +107,11 @@ namespace ProjetoConsultaN2.Services
 					Endereco = p.Endereco,
 					Sexo = p.Sexo,
 					TipoSanguineo = p.TipoSanguineo,
-					Medico = new MedicoDTO
+					Medico = new GetMedicoDTO
 					{
 						Nome = p.Medico.Nome,
 						CRM = p.Medico.CRM,
 						Especialidade = p.Medico.Especialidade,
-						Telefone = p.Medico.Telefone,
-						Endereco = p.Medico.Endereco,
-						DataDeNascimento = p.Medico.DataDeNascimento,
-						Sexo = p.Medico.Sexo,
-						Idade = p.Medico.Idade
 					}
 				}).FirstOrDefaultAsync(p => p.Id == pacienteId);
 			if (paciente == null) return null;
@@ -149,16 +134,11 @@ namespace ProjetoConsultaN2.Services
 					Endereco = p.Endereco,
 					Sexo = p.Sexo,
 					TipoSanguineo = p.TipoSanguineo,
-					Medico = new MedicoDTO
+					Medico = new GetMedicoDTO
 					{
 						Nome = p.Medico.Nome,
 						CRM = p.Medico.CRM,
 						Especialidade = p.Medico.Especialidade,
-						Telefone = p.Medico.Telefone,
-						Endereco = p.Medico.Endereco,
-						DataDeNascimento = p.Medico.DataDeNascimento,
-						Sexo = p.Medico.Sexo,
-						Idade = p.Medico.Idade
 					}
 				}).FirstOrDefaultAsync(p => p.Id == pacienteId);
 			if (paciente == null) return null;

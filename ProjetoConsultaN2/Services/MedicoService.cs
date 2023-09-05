@@ -52,7 +52,7 @@ namespace ProjetoConsultaN2.Services
             return medicos;
         }
 
-        public async Task<List<GetMedicoDTO>?> GetMedicosDisponiveisAsync(DateOnly data, string especialidade)
+        public async Task<List<GetMedicoDTO>?> GetMedicosDisponiveisAsync(DateTime data, string especialidade)
         {
             var consultasData = await _context.Consultas.Where(c => !c.DataConsulta.Equals(data)).ToListAsync();
             var medicos = await _context.Medicos
