@@ -20,7 +20,7 @@ namespace ProjetoConsultaN2.Services
                     Descricao = c.Descricao,
                     Prescricao = c.Prescricao,
                     TipoConsulta = c.TipoConsulta,
-                    Medico = new GetMedicoDTO
+                    Medico = new MedicoInfoDTO
                     {
                         Nome = c.Medico.Nome,
                         CRM = c.Medico.CRM,
@@ -56,7 +56,35 @@ namespace ProjetoConsultaN2.Services
             _context.Consultas.Add(consultaModel);
             await _context.SaveChangesAsync();
 
+<<<<<<< HEAD
             return "Consulta agendada com sucesso";
+=======
+            var response = new GetConsultaDTO
+            {
+                Id = consultaModel.Id,
+                DataConsulta = consultaModel.DataConsulta,
+                Descricao = consultaModel.Descricao,
+                Prescricao = consultaModel.Prescricao,
+                TipoConsulta = consultaModel.TipoConsulta,
+                Medico = new MedicoInfoDTO
+                {
+                    Nome = consultaModel.Medico.Nome,
+                    CRM = consultaModel.Medico.CRM,
+                    Especialidade = consultaModel.Medico.Especialidade
+                },
+                Paciente = new CreatePacienteDTO
+                {
+                    Nome = consultaModel.Paciente.Nome,
+                    DataDeNascimento = consultaModel.Paciente.DataDeNascimento,
+                    CPF = consultaModel.Paciente.CPF,
+                    Telefone = consultaModel.Paciente.Telefone,
+                    Endereco = consultaModel.Paciente.Endereco,
+                    Sexo = consultaModel.Paciente.Sexo,
+                    TipoSanguineo = consultaModel.Paciente.TipoSanguineo
+                }
+            };
+            return response;
+>>>>>>> e2e76e85a884363ff878716c07743a712d7defee
         }
 
         public async Task<string?> DeleteConsultaAsync(int id)
@@ -80,7 +108,7 @@ namespace ProjetoConsultaN2.Services
                     Descricao = c.Descricao,
                     Prescricao = c.Prescricao,
                     TipoConsulta = c.TipoConsulta,
-                    Medico = new GetMedicoDTO
+                    Medico = new MedicoInfoDTO
                     {
                         Nome = c.Medico.Nome,
                         CRM = c.Medico.CRM,

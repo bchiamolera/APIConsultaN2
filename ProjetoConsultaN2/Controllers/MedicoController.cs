@@ -52,7 +52,7 @@ namespace ProjetoConsultaN2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostMedico(MedicoDTO medicoDto)
+        public async Task<IActionResult> PostMedico(PostMedicoDTO medicoDto)
         {
             var medico = await _medicoService.PostMedicoAsync(medicoDto);
             return Ok(medico);

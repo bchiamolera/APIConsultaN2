@@ -11,9 +11,48 @@ namespace ProjetoConsultaN2.Services
             _context = context;
         }
 
-        public async Task<List<Medico>?> GetAllMedicosAsync()
+        public async Task<List<MedicoDTO>?> GetAllMedicosAsync()
         {
-            var medicos = await _context.Medicos.ToListAsync();
+            var medicos = await _context.Medicos.Select(m => new MedicoDTO
+            {
+                Id = m.Id,
+                Nome = m.Nome,
+                CRM = m.CRM,
+                Especialidade = m.Especialidade,
+                Telefone = m.Telefone,
+                Endereco = m.Endereco,
+                DataDeNascimento = m.DataDeNascimento,
+                Sexo = m.Sexo,
+                Idade = m.Idade,
+                Pacientes = _context.Pacientes.Where(p => p.IdMedico == m.Id).Select(p => new CreatePacienteDTO
+                {
+                    Nome = p.Nome,
+                    DataDeNascimento = p.DataDeNascimento,
+                    CPF = p.CPF,
+                    Telefone = p.Telefone,
+                    Endereco = p.Endereco,
+                    Sexo = p.Sexo,
+                    TipoSanguineo = p.TipoSanguineo
+                }).ToList(),
+                Consultas = _context.Consultas.Where(c => c.IdMedico == m.Id).Select(c => new GetConsultaPacienteDTO
+                {
+                    DataConsulta = c.DataConsulta,
+                    Descricao = c.Descricao,
+                    Prescricao = c.Prescricao,
+                    TipoConsulta = c.TipoConsulta,
+                    Paciente = new CreatePacienteDTO
+                    {
+                        Nome = c.Paciente.Nome,
+                        DataDeNascimento = c.Paciente.DataDeNascimento,
+                        CPF = c.Paciente.CPF,
+                        Telefone = c.Paciente.Telefone,
+                        Endereco = c.Paciente.Endereco,
+                        Sexo = c.Paciente.Sexo,
+                        TipoSanguineo = c.Paciente.TipoSanguineo
+                    }
+                }).ToList()
+            })
+                .ToListAsync();
             if (medicos == null)
                 return null;
             return medicos;
@@ -29,7 +68,16 @@ namespace ProjetoConsultaN2.Services
                     Descricao = c.Descricao,
                     Prescricao = c.Prescricao,
                     TipoConsulta = c.TipoConsulta,
-                    Paciente = c.Paciente,
+                    Paciente = new CreatePacienteDTO
+                    {
+                        Nome = c.Paciente.Nome,
+                        DataDeNascimento = c.Paciente.DataDeNascimento,
+                        CPF = c.Paciente.CPF,
+                        Telefone = c.Paciente.Telefone,
+                        Endereco = c.Paciente.Endereco,
+                        Sexo = c.Paciente.Sexo,
+                        TipoSanguineo = c.Paciente.TipoSanguineo
+                    }
                 })
                 .ToListAsync();
             if (consultas == null)
@@ -37,11 +85,11 @@ namespace ProjetoConsultaN2.Services
             return consultas;
         }
 
-        public async Task<List<GetMedicoDTO>?> GetMedicoEspecialidadeAsync(string especialidade)
+        public async Task<List<MedicoInfoDTO>?> GetMedicoEspecialidadeAsync(string especialidade)
         {
             var medicos = await _context.Medicos
                 .Where(m => m.Especialidade == especialidade)
-                .Select(m => new GetMedicoDTO { 
+                .Select(m => new MedicoInfoDTO { 
                     Nome = m.Nome,
                     CRM = m.CRM,
                     Especialidade = m.Especialidade
@@ -52,12 +100,12 @@ namespace ProjetoConsultaN2.Services
             return medicos;
         }
 
-        public async Task<List<GetMedicoDTO>?> GetMedicosDisponiveisAsync(DateTime data, string especialidade)
+        public async Task<List<MedicoInfoDTO>?> GetMedicosDisponiveisAsync(DateTime data, string especialidade)
         {
             var consultasData = await _context.Consultas.Where(c => !c.DataConsulta.Equals(data)).ToListAsync();
             var medicos = await _context.Medicos
                 .Where(m => m.Especialidade == especialidade && m.Consultas.Equals(consultasData))
-                .Select(m => new GetMedicoDTO
+                .Select(m => new MedicoInfoDTO
                 {
                     Nome = m.Nome,
                     CRM = m.CRM,
@@ -69,7 +117,7 @@ namespace ProjetoConsultaN2.Services
             return medicos;
         }
 
-        public async Task<Medico> PostMedicoAsync(MedicoDTO medicoDto)
+        public async Task<Medico> PostMedicoAsync(PostMedicoDTO medicoDto)
         {
             var medicoModel = new Medico
             {

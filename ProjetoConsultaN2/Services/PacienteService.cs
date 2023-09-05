@@ -41,7 +41,7 @@ namespace ProjetoConsultaN2.Services
                     Endereco = p.Endereco,
                     Sexo = p.Sexo,
                     TipoSanguineo = p.TipoSanguineo,
-                    Medico = new GetMedicoDTO
+                    Medico = new MedicoInfoDTO
                     {
                         Nome = p.Medico.Nome,
                         CRM = p.Medico.CRM,
@@ -82,7 +82,7 @@ namespace ProjetoConsultaN2.Services
 					Endereco = p.Endereco,
 					Sexo = p.Sexo,
 					TipoSanguineo = p.TipoSanguineo,
-					Medico = new GetMedicoDTO
+					Medico = new MedicoInfoDTO
 					{
 						Nome = p.Medico.Nome,
 						CRM = p.Medico.CRM,
@@ -107,7 +107,7 @@ namespace ProjetoConsultaN2.Services
 					Endereco = p.Endereco,
 					Sexo = p.Sexo,
 					TipoSanguineo = p.TipoSanguineo,
-					Medico = new GetMedicoDTO
+					Medico = new MedicoInfoDTO
 					{
 						Nome = p.Medico.Nome,
 						CRM = p.Medico.CRM,
@@ -134,7 +134,7 @@ namespace ProjetoConsultaN2.Services
 					Endereco = p.Endereco,
 					Sexo = p.Sexo,
 					TipoSanguineo = p.TipoSanguineo,
-					Medico = new GetMedicoDTO
+					Medico = new MedicoInfoDTO
 					{
 						Nome = p.Medico.Nome,
 						CRM = p.Medico.CRM,
