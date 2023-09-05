@@ -6,7 +6,7 @@ namespace ProjetoConsultaN2.Services.Interface
     {
         Task<List<GetConsultaDTO>> GetAllConsultasAsync();
         Task<string> AgendarConsultaAsync(MarcarConsultaDTO consulta);
-        Task<List<GetConsultaDTO>?> ListarConsultasPorDataAsync(DateOnly data);
+        Task<List<GetConsultaDTO>?> ListarConsultasPorDataAsync(DateTime data);
         Task<string?> DeleteConsultaAsync(int id);
     }
 }

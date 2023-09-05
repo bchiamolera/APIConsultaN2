@@ -48,7 +48,7 @@ namespace ProjetoConsultaN2.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public async Task<ActionResult<PacienteDTO>> UpdatePaciente(int id, PacienteDTO request)
+		public async Task<ActionResult<PacienteDTO>> UpdatePaciente(int id, PacienteTelefoneDTO request)
         {
 			var pacientes = await _pacienteService.UpdatePacienteAsync(id, request);
 			if (pacientes == null)
@@ -59,7 +59,7 @@ namespace ProjetoConsultaN2.Controllers
 		}
 
 		[HttpPatch("{id}")]
-		public async Task<ActionResult<PacienteDTO>> UpdatePacienteAddress(int id, string request)
+		public async Task<ActionResult<PacienteDTO>> UpdatePacienteAddress(int id, PacienteEnderecoDTO request)
         {
 			var pacientes = await _pacienteService.UpdatePacienteAddressAsync(id, request);
 			if (pacientes == null)

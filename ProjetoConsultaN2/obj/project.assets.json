@@ -3921,26 +3921,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mathe\\.nuget\\packages\\": {},
-    "C:\\Users\\mathe\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {},
+    "C:\\Users\\Bernardo Chiamolera\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHubRepositories\\APIConsultaN2\\ProjetoConsultaN2\\ProjetoConsultaN2.csproj",
+      "projectUniqueName": "C:\\Users\\Bernardo Chiamolera\\source\\repos\\ProjetoConsultaN2\\ProjetoConsultaN2\\ProjetoConsultaN2.csproj",
       "projectName": "ProjetoConsultaN2",
-      "projectPath": "D:\\GitHubRepositories\\APIConsultaN2\\ProjetoConsultaN2\\ProjetoConsultaN2.csproj",
-      "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHubRepositories\\APIConsultaN2\\ProjetoConsultaN2\\obj\\",
+      "projectPath": "C:\\Users\\Bernardo Chiamolera\\source\\repos\\ProjetoConsultaN2\\ProjetoConsultaN2\\ProjetoConsultaN2.csproj",
+      "packagesPath": "C:\\Users\\Bernardo Chiamolera\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bernardo Chiamolera\\source\\repos\\ProjetoConsultaN2\\ProjetoConsultaN2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Users\\mathe\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Users\\mathe\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+        "C:\\Users\\Bernardo Chiamolera\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -39,7 +39,7 @@ namespace ProjetoConsultaN2.Controllers
         }
 
         [HttpGet("{data}")]
-        public async Task<IActionResult> GetConsultasByData(DateOnly data)
+        public async Task<IActionResult> GetConsultasByData(DateTime data)
         {
             var consultas = await _consultaService.ListarConsultasPorDataAsync(data);
             if (consultas == null)

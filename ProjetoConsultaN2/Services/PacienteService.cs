@@ -62,8 +62,14 @@ namespace ProjetoConsultaN2.Services
                     Descricao = c.Descricao,
                     Prescricao = c.Prescricao,
                     TipoConsulta = c.TipoConsulta,
-                    PacienteId = c.Paciente.Id
-                }).Where(c => c.PacienteId == pacienteId).ToListAsync();
+					IdPaciente = c.IdPaciente,
+                    Medico = new MedicoInfoDTO
+					{
+						Nome = c.Medico.Nome,
+						CRM = c.Medico.CRM,
+						Especialidade = c.Medico.Especialidade
+					}
+				}).Where(c => c.IdPaciente == pacienteId).ToListAsync();
             if (consultas == null) return null;
             return consultas;
 		}
@@ -93,68 +99,24 @@ namespace ProjetoConsultaN2.Services
 			return pacientes;
 		}
 
-        public async Task<PacienteDTO> UpdatePacienteAddressAsync(int pacienteId, string request)
+        public async Task<string> UpdatePacienteAddressAsync(int pacienteId, PacienteEnderecoDTO request)
         {
-			var paciente = await _context.Pacientes
-				.Include(p => p.Medico)
-				.Select(p => new PacienteDTO
-				{
-					Id = p.Id,
-					Nome = p.Nome,
-					DataDeNascimento = p.DataDeNascimento,
-					CPF = p.CPF,
-					Telefone = p.Telefone,
-					Endereco = p.Endereco,
-					Sexo = p.Sexo,
-					TipoSanguineo = p.TipoSanguineo,
-					Medico = new MedicoInfoDTO
-					{
-						Nome = p.Medico.Nome,
-						CRM = p.Medico.CRM,
-						Especialidade = p.Medico.Especialidade,
-					}
-				}).FirstOrDefaultAsync(p => p.Id == pacienteId);
+			Paciente paciente = await _context.Pacientes.FirstOrDefaultAsync(p => p.Id == pacienteId);
 			if (paciente == null) return null;
-            paciente.Endereco = request;
+            paciente.Endereco = request.Endereco;
             await _context.SaveChangesAsync();
-            return paciente;
+            
+            return "Endereço atualizado com sucesso!";
 		}
 
-        public async Task<PacienteDTO> UpdatePacienteAsync(int pacienteId, PacienteDTO request)
+        public async Task<string> UpdatePacienteAsync(int pacienteId, PacienteTelefoneDTO request)
         {
-			var paciente = await _context.Pacientes
-				.Include(p => p.Medico)
-				.Select(p => new PacienteDTO
-				{
-					Id = p.Id,
-					Nome = p.Nome,
-					DataDeNascimento = p.DataDeNascimento,
-					CPF = p.CPF,
-					Telefone = p.Telefone,
-					Endereco = p.Endereco,
-					Sexo = p.Sexo,
-					TipoSanguineo = p.TipoSanguineo,
-					Medico = new MedicoInfoDTO
-					{
-						Nome = p.Medico.Nome,
-						CRM = p.Medico.CRM,
-						Especialidade = p.Medico.Especialidade,
-					}
-				}).FirstOrDefaultAsync(p => p.Id == pacienteId);
+            Paciente paciente = await _context.Pacientes.FirstOrDefaultAsync(p => p.Id == pacienteId);
 			if (paciente == null) return null;
-
-			paciente.Nome = request.Nome;
-			paciente.DataDeNascimento = request.DataDeNascimento;
-			paciente.CPF = request.CPF;
 			paciente.Telefone = request.Telefone;
-			paciente.Endereco = request.Endereco;
-			paciente.Sexo = request.Sexo;
-			paciente.TipoSanguineo = request.TipoSanguineo;
-			paciente.Medico = request.Medico;
-
 			await _context.SaveChangesAsync();
 
-			return paciente;
+			return "Número de telefone atualizado com sucesso!";
 		}
     }
 }

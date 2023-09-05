@@ -6,6 +6,7 @@
         public string Descricao { get; set; } = string.Empty;
 		public string Prescricao { get; set; } = string.Empty;
 		public string TipoConsulta { get; set; } = string.Empty;
-		public int PacienteId { get; set;} = 0;
+        public int IdPaciente { get; set; } = 0;
+        public MedicoInfoDTO Medico { get; set; }
 	}
 }

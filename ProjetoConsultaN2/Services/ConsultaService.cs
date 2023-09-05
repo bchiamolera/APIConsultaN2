@@ -69,7 +69,7 @@ namespace ProjetoConsultaN2.Services
             return "Consulta deletada com sucesso.";
         }
 
-        public async Task<List<GetConsultaDTO>?> ListarConsultasPorDataAsync(DateOnly data)
+        public async Task<List<GetConsultaDTO>?> ListarConsultasPorDataAsync(DateTime data)
         {
             var consultas = await _context.Consultas
                 .Where(c => c.DataConsulta.Equals(data))
