@@ -102,9 +102,8 @@ namespace ProjetoConsultaN2.Services
 
         public async Task<List<MedicoInfoDTO>?> GetMedicosDisponiveisAsync(DateTime data, string especialidade)
         {
-            var consultasData = await _context.Consultas.Where(c => !c.DataConsulta.Equals(data)).ToListAsync();
             var medicos = await _context.Medicos
-                .Where(m => m.Especialidade == especialidade && m.Consultas.Equals(consultasData))
+                .Where(m => m.Especialidade == especialidade && m.Consultas.Any(c => c.DataConsulta != data))
                 .Select(m => new MedicoInfoDTO
                 {
                     Nome = m.Nome,
